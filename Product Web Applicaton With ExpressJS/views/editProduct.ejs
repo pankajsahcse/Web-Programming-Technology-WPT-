@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product | Product Management</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="form-page">
+
+    <div class="form-card">
+
+        <div class="form-icon">✏️</div>
+
+        <h1>Update Product</h1>
+        <p class="subtitle">Modify your product information</p>
+
+        <form action="/product/updateproduct" method="post">
+
+            <div class="form-group">
+                <label>Product ID</label>
+                <input type="text" name="pid" id="pid" value="<%= product.pid %>" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" name="pname" id="pname" value="<%= product.pname %>">
+            </div>
+
+            <div class="form-group">
+                <label>Product Quantity</label>
+                <input type="text" name="qty" id="qty" value="<%= product.qty %>">
+            </div>
+
+            <div class="form-group">
+                <label>Product Price (₹)</label>
+                <input type="text" name="price" id="price" value="<%= product.price %>">
+            </div>
+
+            <div class="form-group">
+                <label>Manufacturing Date</label>
+                <input type="date" name="mfgdate" id="mfgdate"
+                    value="<%= product.mfgdate.toISOString().split('T')[0] %>">
+            </div>
+
+            <button type="submit" name="update" id="update" value="update" class="btn btn-primary btn-full">
+                Update Product
+            </button>
+
+            <a href="/product/getproducts" class="back-link">← Back to Product List</a>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

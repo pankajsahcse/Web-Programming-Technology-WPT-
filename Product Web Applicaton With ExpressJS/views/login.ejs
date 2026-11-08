@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Product Management</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="login-page">
+
+    <div class="login-card">
+
+        <div class="login-icon">🔐</div>
+
+        <h2>Welcome Back!</h2>
+        <p class="subtitle">Login to your Product Management Account</p>
+
+        <% if (typeof message !=='undefined' && message) { %>
+            <p class="error-message">
+                <%= message %>
+            </p>
+            <% } %>
+
+                <form action="/login/validateuser" method="POST">
+
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="username" name="uname" placeholder="Enter username" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Enter password" required />
+                    </div>
+
+                    <div class="forgot-password">
+                        <a href="/login/forgotpass">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" name="btn" id="login" value="login" class="btn btn-primary btn-full">
+                        Login
+                    </button>
+
+                    <button type="reset" class="btn btn-reset btn-full">
+                        Reset
+                    </button>
+
+                </form>
+
+                <div class="login-footer">
+                    Don't have an account?
+                    <a href="/login/register">Register Now</a>
+                </div>
+
+    </div>
+
+</body>
+
+</html>

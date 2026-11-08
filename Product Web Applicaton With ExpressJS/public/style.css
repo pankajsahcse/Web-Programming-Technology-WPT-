@@ -1,0 +1,360 @@
+
+/* =================================
+   GLOBAL CSS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f6fbf4;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =================================
+   COMMON BUTTONS
+================================= */
+
+.btn {
+    display: inline-block;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.btn-primary {
+    background: #4f46e5;
+    color: white;
+}
+
+.btn-success {
+    background: #16a34a;
+    color: white;
+}
+
+.btn-reset {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.btn-edit {
+    background: #2563eb;
+    color: white;
+    padding: 8px 13px;
+}
+
+.btn-delete {
+    background: #dc2626;
+    color: white;
+    padding: 8px 13px;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* =================================
+   LOGIN PAGE
+================================= */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #695df0, #7c3aed);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.login-icon,
+.form-icon {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.login-card h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #312e81;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin: 10px 0 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    color: #4f46e5;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.login-card .btn {
+    margin-bottom: 12px;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-footer a {
+    color: #4f46e5;
+    font-weight: 600;
+}
+
+.error-message {
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 12px;
+    border-radius: 7px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* =================================
+   PRODUCT LIST PAGE
+================================= */
+
+.list-page {
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.main-header {
+    background: linear-gradient(135deg, #3730a3, #6366f1);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.main-header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.main-header p {
+    font-size: 14px;
+    color: #e0e7ff;
+}
+
+.container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    gap: 15px;
+}
+
+.page-heading h2 {
+    font-size: 24px;
+    color: #312e81;
+    margin-bottom: 7px;
+}
+
+.page-heading p {
+    font-size: 14px;
+    color: #777;
+}
+
+.table-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.list-page table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.list-page th {
+    background: #eef0ff;
+    color: #3730a3;
+    padding: 16px 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.list-page td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-size: 14px;
+}
+
+.list-page tbody tr:hover {
+    background: #f8f8ff;
+}
+
+.product-name {
+    font-weight: 600;
+    color: #374151;
+}
+
+.action-buttons {
+    white-space: nowrap;
+}
+
+.action-buttons a {
+    margin: 0 4px;
+}
+
+/* =================================
+   ADD / EDIT PRODUCT PAGE
+================================= */
+
+.form-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+}
+
+.form-card {
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+}
+
+.form-card h1 {
+    text-align: center;
+    color: #3730a3;
+    font-size: 26px;
+}
+
+.form-card .subtitle {
+    margin-bottom: 25px;
+}
+
+.form-card input[readonly] {
+    background: #f3f4f6;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 22px;
+    color: #4f46e5;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 600px) {
+
+    .login-card {
+        padding: 28px 22px;
+    }
+
+    .list-page {
+        padding: 15px;
+    }
+
+    .main-header h1 {
+        font-size: 22px;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .table-card {
+        padding: 12px;
+    }
+
+    .form-card {
+        padding: 25px 20px;
+    }
+}

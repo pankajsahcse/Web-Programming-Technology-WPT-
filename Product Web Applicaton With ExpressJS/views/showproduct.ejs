@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List | Product Management</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="list-page">
+
+    <header class="main-header">
+        <h1>Product Management System</h1>
+        <p>Manage your products easily and efficiently</p>
+    </header>
+
+    <main class="container">
+
+        <div class="page-heading">
+            <div>
+                <h2>Product List</h2>
+                <p>View and manage all available products</p>
+            </div>
+
+            <form action="/product/addproduct">
+                <button type="submit" name="add" id="add" value="add" class="btn btn-success">
+                    + Add Product
+                </button>
+            </form>
+        </div>
+
+        <div class="table-card">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Price (₹)</th>
+                            <th>Manufacturing Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% for(var i=0; i<productdata.length; i++) { %>
+                            <tr>
+                                <td><%= productdata[i].pid %></td>
+                                <td class="product-name"><%= productdata[i].pname %></td>
+                                <td><%= productdata[i].qty %></td>
+                                <td>₹ <%= productdata[i].price %></td>
+                                <td><%= productdata[i].mfgdate.toISOString().split('T')[0] %></td>
+
+                                <td class="action-buttons">
+                                    <a class="btn btn-edit" href="/product/editproduct/<%= productdata[i].pid %>">Edit</a>
+                                    <a class="btn btn-delete" href="/product/deleteproduct/<%= productdata[i].pid %>">Delete</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
