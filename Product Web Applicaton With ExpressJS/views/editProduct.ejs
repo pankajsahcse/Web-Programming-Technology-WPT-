@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@
             <div class="form-group">
                 <label>Manufacturing Date</label>
                 <input type="date" name="mfgdate" id="mfgdate"
-                    value="<%= product.mfgdate.toISOString().split('T')[0] %>">
+                    value="<%= product.mfgdate.getFullYear() %>-<%= String(product.mfgdate.getMonth() + 1).padStart(2, '0') %>-<%= String(product.mfgdate.getDate()).padStart(2, '0') %>">
             </div>
 
             <button type="submit" name="update" id="update" value="update" class="btn btn-primary btn-full">
@@ -56,4 +56,5 @@
     </div>
 
 </body>
+
 </html>

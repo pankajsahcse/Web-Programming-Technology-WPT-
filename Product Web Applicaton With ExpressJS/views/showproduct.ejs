@@ -51,7 +51,7 @@
                                 <td class="product-name"><%= productdata[i].pname %></td>
                                 <td><%= productdata[i].qty %></td>
                                 <td>₹ <%= productdata[i].price %></td>
-                                <td><%= productdata[i].mfgdate.toISOString().split('T')[0] %></td>
+                                <td><%= productdata[i].mfgdate.getFullYear() %>-<%= String(productdata[i].mfgdate.getMonth() + 1).padStart(2, '0') %>-<%= String(productdata[i].mfgdate.getDate()).padStart(2, '0') %></td>
 
                                 <td class="action-buttons">
                                     <a class="btn btn-edit" href="/product/editproduct/<%= productdata[i].pid %>">Edit</a>

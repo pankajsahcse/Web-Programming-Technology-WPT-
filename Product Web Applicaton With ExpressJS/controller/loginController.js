@@ -1,32 +1,44 @@
 const myconnection = require("../databaseconfig/dbconnection");
 
 exports.getLoginForm = (req, resp) => {
-  resp.render("login");
+
+  var message = req.session.message;
+  var messageType = req.session.messageType;
+
+  req.session.message = null;
+  req.session.messageType = null;
+
+  resp.render("login", {
+    message: message,
+    messageType: messageType
+  });
 };
 
 exports.validateuserdetails = (req, resp) => {
   //var uname=req.body.uname;
   //var password=req.body.password
   var { uname, password } = req.body;
-  console.log(uname + "," + password);
+  // console.log(uname + "," + password);
   myconnection.query(
     "select * from userlogin where username=?",
     [uname],
     (err, result) => {
       if (err) {
-        console.log(err);
+        // console.log(err);
       } else {
         //result is a array,username not found
         if (result.length == 0) {
           resp.render("login", {
             message: "Invalid username or Password!",
+            messageType: "error"
           });
         } else {
-          console.log("Result");
-          console.log(result);
+          // console.log("Result");
+          // console.log(result);
           var user = result[0];
-          console.log("user");
-          console.log(user);
+          // console.log("user");
+          // console.log(user);
+
           //check password
           if (user.password === password) {
             //resp.send("<h1>Valid user</h1>")
@@ -36,6 +48,7 @@ exports.validateuserdetails = (req, resp) => {
           } else {
             resp.render("login", {
               message: "Invalid username or Password!",
+              messageType: "error"
             });
           }
         }

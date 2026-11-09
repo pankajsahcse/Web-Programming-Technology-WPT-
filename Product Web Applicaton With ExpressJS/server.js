@@ -10,6 +10,7 @@ app.use(express.static("public"));
 
 const loginrouter = require("./router/loginrouter")
 const productrouter = require("./router/productrouter")
+const registerrouter = require("./router/registerrouter");
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"))
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 //url handler moddleware
 app.use("/login",loginrouter)
 app.use("/product",productrouter)
+app.use("/register", registerrouter)
 
 //start the server
 

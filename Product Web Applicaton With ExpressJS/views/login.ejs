@@ -18,10 +18,11 @@
         <p class="subtitle">Login to your Product Management Account</p>
 
         <% if (typeof message !=='undefined' && message) { %>
-            <p class="error-message">
+            <p class="<%= messageType === 'success' ? 'success-message' : 'error-message' %>">
                 <%= message %>
             </p>
             <% } %>
+
 
                 <form action="/login/validateuser" method="POST">
 

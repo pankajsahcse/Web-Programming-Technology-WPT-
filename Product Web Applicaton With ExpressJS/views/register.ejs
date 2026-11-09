@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | Product Management</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="register-page">
+
+    <div class="register-card">
+
+        <div class="register-icon">🔐</div>
+
+        <h2>Welcome!</h2>
+        <p class="subtitle">Register Yourself into Product Management Account</p>
+
+        <% if (typeof message !=='undefined' && message) { %>
+            <p class="error-message">
+                <%= message %>
+            </p>
+            <% } %>
+
+                <form action="/register/adduser" method="POST">
+
+                    <div class="form-group">
+                        <label>Create Username</label>
+                        <input type="username" name="uname" placeholder="Enter username" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Create Password</label>
+                        <input type="password" name="password" placeholder="Enter password" required />
+                    </div>
+
+                  
+
+                    <button type="submit" name="btn" id="register" value="register" class="btn btn-primary btn-full">
+                        Register
+                    </button>
+
+                    <button type="reset" class="btn btn-reset btn-full">
+                        Reset
+                    </button>
+
+                </form>
+
+                <div class="register-footer">
+                    Have an account?
+                    <a href="/login/">Login Now</a>
+                </div>
+
+    </div>
+
+</body>
+
+</html>
