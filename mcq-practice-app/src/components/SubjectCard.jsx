@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 function SubjectCard({ subject }) {
 
     const navigate = useNavigate();
+    
 
+    // When user click on the button Start Practice then this will navigate /test/subName . to App.jsx then router Route decide
     function handleClick() {
         navigate(`/test/${subject.name.toLowerCase()}`);
     }

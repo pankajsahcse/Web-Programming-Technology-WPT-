@@ -22,6 +22,8 @@ function Home() {
       <section className="subject-grid" id="subjects">
         {subjects.map((subject) => (
 
+        // Here passing subjects Details using props to SubjectCard Component
+        
           <SubjectCard
             key={subject.id}
             subject={subject}
