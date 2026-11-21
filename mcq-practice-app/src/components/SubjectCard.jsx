@@ -1,5 +1,14 @@
 
-function SubjectCard({ subject, onSelect }) {
+import { useNavigate } from "react-router-dom";
+
+function SubjectCard({ subject }) {
+
+    const navigate = useNavigate();
+
+    function handleClick() {
+        navigate(`/test/${subject.name.toLowerCase()}`);
+    }
+
     return (
         <div className="subject-card">
 
@@ -17,7 +26,7 @@ function SubjectCard({ subject, onSelect }) {
             <div className="card-footer">
                 <span>{subject.questions} Questions</span>
 
-                <button onClick={() => onSelect(subject)}>
+                <button onClick={handleClick}>
                     Start Practice
                 </button>
             </div>

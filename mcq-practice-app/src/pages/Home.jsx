@@ -1,9 +1,11 @@
+
 import subjects from "../data/subjects";
 import SubjectCard from "../components/SubjectCard";
 
-function Home({ onSelectSubject }) {
+function Home() {
   return (
     <div className="home-container">
+
       <section className="hero">
         <h1>
           Welcome to <span>CodePractice</span>
@@ -20,14 +22,14 @@ function Home({ onSelectSubject }) {
       <section className="subject-grid" id="subjects">
         {subjects.map((subject) => (
 
-          // Subject Card Component Use
           <SubjectCard
             key={subject.id}
             subject={subject}
-            onSelect={onSelectSubject}
           />
+
         ))}
       </section>
+
     </div>
   );
 }

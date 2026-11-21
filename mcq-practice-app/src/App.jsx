@@ -1,25 +1,25 @@
 
-import { useState } from "react";
-
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Quiz from "./pages/Quiz";
+
+import { Routes, Route } from "react-router-dom";
 
 import "./style.css";
 
 function App() {
 
-  const [selectedSubject, setSelectedSubject] = useState(null);
-
-  function handleSubjectSelect(subject) {
-    setSelectedSubject(subject);
-    console.log("Selected Subject:", subject.name);
-  }
-
   return (
     <>
       <Navbar />
 
-      <Home onSelectSubject={handleSubjectSelect} />
+      <Routes>
+
+        <Route path="/" element={<Home />} />
+
+        <Route path="/test/:subject" element={<Quiz />} />
+
+      </Routes>
     </>
   );
 }
