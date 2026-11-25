@@ -8,6 +8,11 @@ class CouseService {
     getAllCourses(){
       return  this.carr;
     }
+
+    addCourse(course){
+        this.carr.push(course);
+    }
+
 }
 
 export default new CouseService()
