@@ -21,7 +21,11 @@ function Quiz() {
 
     const [quizStarted, setQuizStarted] = useState(false);
 
+    const [selectedAnswer, setSelectedAnswer] = useState({});
 
+    const [showResult, setShowResult] = useState(false);
+
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
     /* Now Filetering the Questions */
 
@@ -30,12 +34,16 @@ function Quiz() {
             q.subject === subject && q.difficulty === selectedLevel
     );
 
+    const currentQuestion = filterQuestions[currentQuestionIndex];
+
+    const score = filterQuestions.filter(
+        (q) => selectedAnswer[q.id] === q.answer
+    ).length;
 
     return (
         <div>
 
             <h1>{subject.toUpperCase()} MCQ Test</h1>
-            <p>Welcome to the MCQ Practice Test!</p>
 
             <h2>Select Difficulty Level</h2>
 
@@ -66,7 +74,7 @@ function Quiz() {
                     </button>
                 </div>
             )}
-       
+
 
             {/* Display Questions After Clicking Start Quiz */}
 
@@ -74,15 +82,67 @@ function Quiz() {
                 <div className="quiz-container">
                     <h2>Quiz Started!</h2>
 
-                    {filterQuestions.map((q) => (
-                        <div key={q.id}>
-                            <h3>{q.question}</h3>
+                    {currentQuestion && (
+                        <table className="quiz-table">
+                            <thead>
+                                <tr>
+                                    <th>{currentQuestion.question}</th>
+                                </tr>
+                            </thead>
 
-                            {q.options.map((option, index) => (
-                                <p key={index}>{option}</p>
-                            ))}
+                            <tbody>
+                                {currentQuestion.options.map((option, index) => (
+                                    <tr key={index}>
+                                        <td>
+                                            <label className="option-label">
+                                                <input
+                                                    type="radio"
+                                                    name={`question-${currentQuestion.id}`}
+                                                    value={option}
+                                                    checked={selectedAnswer[currentQuestion.id] === option}
+                                                    onChange={() => {
+                                                        setSelectedAnswer({
+                                                            ...selectedAnswer,
+                                                            [currentQuestion.id]: option
+                                                        });
+                                                    }}
+                                                />
+                                                {option}
+                                            </label>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    )}
+
+                    {/* Next Button */}
+                    {currentQuestionIndex < filterQuestions.length - 1 && (
+                        <button
+                            className="submit-quiz-btn"
+                            onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
+                        >
+                            Next
+                        </button>
+                    )}
+
+                    {/* Submit Button on Last Question */}
+                    {currentQuestionIndex === filterQuestions.length - 1 && (
+                        <button
+                            className="submit-quiz-btn"
+                            onClick={() => setShowResult(true)}
+                        >
+                            Submit Quiz
+                        </button>
+                    )}
+
+                    {/* Result */}
+                    {showResult && (
+                        <div>
+                            <h2>Quiz Result</h2>
+                            <h3>Your Score: {score} / {filterQuestions.length}</h3>
                         </div>
-                    ))}
+                    )}
                 </div>
             )}
 

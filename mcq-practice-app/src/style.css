@@ -234,4 +234,58 @@ body {
     cursor: pointer;
 }
 
+/* Table formarting */
+
+.quiz-container h2 {
+ margin:10px;
+}
+
+.quiz-table {
+    width: 80%;
+    margin: 25px auto;
+    border-collapse: collapse;
+} 
+
+.quiz-table td {
+    background-color: #f9fafb;
+    padding: 12px 20px;
+    text-align: left;
+}
+
+.quiz-table input {
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+}
+
+.quiz-table label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+/* Submit Quiz Button */
+.submit-quiz-btn {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 35px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-quiz-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
 
