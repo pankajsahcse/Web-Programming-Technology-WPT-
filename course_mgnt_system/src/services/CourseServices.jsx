@@ -13,6 +13,15 @@ class CouseService {
         this.carr.push(course);
     }
 
+    updateCourse(course){
+        // First find the product which are exist or not with associated Id
+        var pos = this.carr.findIndex((c) => c.cid === course.cid);
+        if(pos != -1){
+            // Replace the course at pos and 1 data with course data
+            this.carr.splice(pos,1,course);
+        }
+    }
+
 }
 
 export default new CouseService()
